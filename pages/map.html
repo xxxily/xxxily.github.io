@@ -27,7 +27,7 @@
   }).setMaxBounds([[-90, 0], [90, 360]])
   var mapLayers = {
     '谷歌高德杂交/卫星': L.layerGroup([
-      L.tileLayer('//www.google.cn/maps/vt?lyrs=s@189≷=cn&x={x}&y={y}&z={z}', {
+      L.tileLayer('//www.google.cn/maps/vt?lyrs=s@189&gl=cn&x={x}&y={y}&z={z}', {
         maxZoom: 20,
         minZoom: 3,
         attribution: '谷歌提供卫星图，高德提供街道图'
@@ -65,12 +65,12 @@
       attribution: '高德地图 AutoNavi.com',
       subdomains: '1234'
     }),
-    '谷歌/卫星': L.tileLayer('//www.google.cn/maps/vt?lyrs=s@189≷=cn&x={x}&y={y}&z={z}', {
+    '谷歌/卫星': L.tileLayer('//www.google.cn/maps/vt?lyrs=s@189&gl=cn&x={x}&y={y}&z={z}', {
       maxZoom: 20,
       minZoom: 3,
       attribution: '谷歌 Google.cn'
     }),
-    '谷歌/街道': L.tileLayer('//www.google.cn/maps/vt?lyrs=m@189≷=cn&x={x}&y={y}&z={z}', {
+    '谷歌/街道': L.tileLayer('//www.google.cn/maps/vt?lyrs=m@189&gl=cn&x={x}&y={y}&z={z}', {
       maxZoom: 20,
       minZoom: 3,
       attribution: '谷歌 Google.cn'
@@ -91,5 +91,6 @@
     zoomOutTitle: '缩小'
   }).addTo(map)
 </script>
+<!--源代码地址：https://lantian.pub/article/modify-website/leaflet-combine-google-cn-satellite-autonavi-map.lantian/-->
 </body>
 </html>
