@@ -41,14 +41,16 @@
     h1.classList.toggle('textColor')
   })
 
-  /* 微信下打开自动播放视频 */
-  function autoPlay(){
-    WeixinJSBridge.invoke('getNetworkType', {}, function (e) { video.play() })
-  }
+  /* ios微信下打开自动播放视频 */
+  function autoPlay(){ WeixinJSBridge.invoke('getNetworkType', {}, function (e) { video.play() }) }
   if (window.WeixinJSBridge) {
     autoPlay()
   } else {
     document.addEventListener("WeixinJSBridgeReady", function(){ autoPlay() }, false);
   }
+
+  /* 微信安卓下没法自动播放，只能点击任意元素触发播放 */
+  const isWeixn = navigator.userAgent.toLowerCase().indexOf('micromessenger') !== -1
+  if (isWeixn) { document.addEventListener('touchstart', function () { video.play() }, false) }
 </script>
 </html>
