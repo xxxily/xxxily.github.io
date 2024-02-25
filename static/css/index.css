@@ -13,3 +13,41 @@ html,body{
 .mod_box01 video{
   margin:0 auto;
 }
+
+.nav-mod ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-mod a {
+  display: block;
+  padding: 10px 20px;
+  margin: 10px;
+  border: 1px solid #fff;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.3s;
+  font-size: 14px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+.nav-mod a:hover {
+  background-color: #fff;
+  color: #F55402;
+}
+
+@keyframes changeColor{
+  0%{
+    color:#000;
+  }
+  100%{
+    color:#fff;
+  }
+}
+
+.textColor{
+  animation:changeColor 1.5s infinite;
+}

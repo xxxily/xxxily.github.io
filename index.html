@@ -1,15 +1,33 @@
 <!DOCTYPE html>
 <html lang="cn">
 <head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="static/css/base.css">
-  <link rel="stylesheet" href="static/css/index.css">
-  <title>喵喵喵喵喵喵喵喵喵~</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="./static/css/base.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <title>anzz.top</title>
 </head>
 <body>
 <div class="mod_box01">
   <h1>喵喵喵喵喵喵喵喵喵~</h1>
-  <video muted autoplay="" loop="" name="media" width="300" height="208"><source src="static/video/miao.mp4" type="video/mp4"></video>
+  <video id="video" muted autoplay="" loop="" name="media" width="300" height="208">
+    <source src="./static/video/miao.mp4" type="video/mp4">
+  </video>
+
+
+  <nav class="nav-mod">
+    <ul>
+      <li><a href="https://h5player.anzz.top/">h5player.anzz.top</a></li>
+      <li><a href="https://ai.anzz.top/">ai.anzz.top</a></li>
+    </ul>
+  </nav>
 </div>
 </body>
+<script>
+  var video = document.getElementById('video')
+  var h1 = document.querySelector('h1')
+  video.addEventListener('mouseenter', function () { h1.classList.add('textColor') })
+  video.addEventListener('mouseleave', function () { h1.classList.remove('textColor')})
+  video.addEventListener('click', function () { h1.classList.toggle('textColor') })
+</script>
 </html>
