@@ -10,10 +10,15 @@
 <body>
 <div class="mod_box01">
   <h1>喵喵喵喵喵喵喵喵喵~</h1>
-  <video id="video" muted autoplay="" loop="" name="media" width="300" height="208">
+  <video id="video" muted autoplay="" loop="" name="media" width="300" height="208"
+    x5-video-player-type="h5"
+    webkit-playsinline="true"
+    x-webkit-airplay="true"
+    playsinline="true"
+    x5-video-player-fullscreen="true"
+  >
     <source src="./static/video/miao.mp4" type="video/mp4">
   </video>
-
 
   <nav class="nav-mod">
     <ul>
@@ -26,8 +31,24 @@
 <script>
   var video = document.getElementById('video')
   var h1 = document.querySelector('h1')
+  video.play()
   video.addEventListener('mouseenter', function () { h1.classList.add('textColor') })
   video.addEventListener('mouseleave', function () { h1.classList.remove('textColor')})
-  video.addEventListener('click', function () { h1.classList.toggle('textColor') })
+  let touchEvent = 'click'
+  if (navigator.userAgent.match(/(iPhone|iPod|Android|ios|iPad|Windows Phone|MQQBrowser)/i)) { touchEvent = 'touchstart' }
+  video.addEventListener(touchEvent, function () {
+    video.play()
+    h1.classList.toggle('textColor')
+  })
+
+  /* 微信下打开自动播放视频 */
+  function autoPlay(){
+    WeixinJSBridge.invoke('getNetworkType', {}, function (e) { video.play() })
+  }
+  if (window.WeixinJSBridge) {
+    autoPlay()
+  } else {
+    document.addEventListener("WeixinJSBridgeReady", function(){ autoPlay() }, false);
+  }
 </script>
 </html>
